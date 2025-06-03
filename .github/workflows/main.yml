@@ -1,0 +1,26 @@
+# .github/workflows/zip-release.yml
+name: Zip Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  zip_and_upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create ZIP of repository contents
+        run: |
+          zip -r release.zip .
+
+      - name: Upload ZIP as release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip
