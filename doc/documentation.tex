@@ -1,0 +1,350 @@
+% Inside the doc folder belongs also the final documentation pdf for the upload to CTAN!
+% currently i do not know how to automize this maybe via github workflow?
+
+
+%===============================================================================
+% qcstyle-doc.tex  v0.1  2025/06/03
+% Documentation for the qcstyle LaTeX package
+% Copyright (c) 2025 Christian Selzer
+%===============================================================================
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=bonnblue,
+    citecolor=bonnblue,
+    urlcolor=bonnblue
+}
+
+% If the package is installed via CTAN or in your local TEXMF tree, use:
+% \usepackage{qcstyle}
+% Otherwise, to compile this documentation, place qcstyle.sty in the same directory and uncomment:
+\input{../src/qcstyle.sty}
+
+\title{\texttt{qcstyle} Package Documentation}
+\author{Christian Selzer}
+\date{2025/06/03}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document describes the \texttt{qcstyle} package (version 0.1, dated 2025/06/03), developed to consolidate common quantum-chemistry program names, colorful branding elements, and frequently used abbreviations into a single, centrally maintained style file. With \texttt{qcstyle}, authors can ensure uniform formatting for program names, method labels, color highlights, and other notations across all QC-related manuscripts. 
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+%------------------------------------------------------------------------------
+\section{Introduction}
+The \texttt{qcstyle} package was created to simplify and standardize the appearance of quantum-chemical program names, method labels, and key notations in LaTeX documents. Rather than manually inserting font switches, colors, or special macros each time you mention a program (e.g., \orca, \xtb) or a quantity (e.g., \pka, \dgsolv), \texttt{qcstyle} provides a concise set of commands that automatically apply consistent formatting. Additionally, several custom colors matching the University of Bonn’s corporate palette are defined, enabling easy color highlights in presentations, posters, or manuscripts.  
+
+\medskip
+Key features:
+\begin{itemize}
+  \item \textbf{Program Macros:} Uniform fonts (small caps, typewriter) for popular QC codes (\orca, \censo, \draco, \crest, \xtb, \tblite).
+  \item \textbf{Color Palette:} Predefined RGB colors (\texttt{bonnblue}, \texttt{bonnred}, \texttt{bonnyellow}, \texttt{bonngrey}/\texttt{bonngray}, \texttt{bonngreen}, etc.) aligned with University of Bonn branding.
+  \item \textbf{Abbreviation Macros:} Convenient commands for \etal, \ie, \eg, physical chemistry quantities (\pka, \dgsolv, \kcalmol).
+  \item \textbf{QC-Method Macro:} A shorthand for the r\textsuperscript{2}SCAN-3c composite method: \verb|\rsc|.
+  \item \textbf{Minimal Dependencies:} Only \texttt{xcolor} is required. 
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\section{Installation}
+\label{sec:installation}
+
+\subsection{CTAN or Local TEXMF Installation}
+Once the \texttt{qcstyle} package is submitted to CTAN (or maintained in your local \texttt{TEXMF} tree), you can install it in the usual way for LaTeX packages. After installation, add the following line in your document’s preamble:
+\begin{verbatim}
+\usepackage{qcstyle}
+\end{verbatim}
+
+\subsection{Manual (Unpacked) Usage}
+If you have not installed the package system-wide, simply place the \texttt{qcstyle.sty} file in the same folder as your \texttt{.tex} document (or in a subfolder, e.g.\ \texttt{src/}). Then, in the preamble, either:
+\begin{verbatim}
+% If qcstyle.sty is in the same directory:
+\input{qcstyle.sty}
+
+% Or, if stored under src/:
+\input{src/qcstyle.sty}
+\end{verbatim}
+
+Ensure that you have \texttt{xcolor} available, since \texttt{qcstyle} depends on it.
+
+%------------------------------------------------------------------------------
+\section{Package Options}
+\label{sec:options}
+The current version (0.1) of \texttt{qcstyle} does not provide user-settable options. All macros and colors are preconfigured. Future versions may introduce options to toggle certain definitions or adjust color names.
+
+%------------------------------------------------------------------------------
+\section{Color Definitions}
+\label{sec:colors}
+\texttt{qcstyle} defines a palette of RGB colors aligned with the University of Bonn branding, plus a few additional utility colors. All color names can be passed to \verb|\textcolor{<name>}{...}| or used in other color-aware commands.
+
+\bigskip
+\begin{tabular}{@{}llp{8cm}@{}}
+\textbf{Color Name}     & \textbf{RGB}        & \textbf{Description} \\
+\midrule
+\texttt{bonnblue}       & (007, 078, 159)        & “Bonn blue” primary corporate color. \\
+\texttt{bonnred}        & (185, 039, 039)       & “Bonn red” accent color. \\
+\texttt{bonnyellow}     & (252, 186, 000)       & “Bonn yellow” highlight. \\
+\texttt{bonngrey}       & (144, 144, 133)     & Neutral grey tone. \\
+\texttt{bonngray}       & (144, 144, 133)     & Alias for \texttt{bonngrey} (American spelling). \\
+\texttt{bonngreen}      & (000, 123, 078)        & Contrast green for accent. \\
+\midrule
+\texttt{newaccent}      & (000, 000, 000)           & Reserved for future accent. \\
+\texttt{black}          & (000, 000, 000)           & Standard black (redundant with default). \\
+\texttt{highlightgreen} & (000, 204, 000)         & Bright green for highlighting. \\
+\texttt{white}          & (255, 255, 255)     & Pure white (contrast). \\
+\texttt{StdBody}        & (233, 233, 233)     & Light grey for backgrounds or shading. \\
+\end{tabular}
+
+\bigskip
+\subsection{Usage Examples}
+\begin{verbatim}
+% Text in Bonn blue:
+\textcolor{bonnblue}{This text appears in Bonn blue.}
+
+% Using shortcut macros:
+\colb{This is also Bonn blue.}
+\colr{This text is Bonn red.}
+\colg{This text is Bonn grey.}
+\coly{This text is Bonn yellow.}
+\end{verbatim}
+
+%------------------------------------------------------------------------------
+\section{Shortcut Color Macros}
+\label{sec:shortcuts}
+To simplify inline color usage, \texttt{qcstyle} defines four “shortcut” macros:
+\begin{itemize}
+  \item \verb|\colb{<text>}|  $\Rightarrow$ \textcolor{bonnblue}{blue} text.
+  \item \verb|\coly{<text>}|  $\Rightarrow$ \textcolor{bonnyellow}{yellow} text.
+  \item \verb|\colr{<text>}|  $\Rightarrow$ \textcolor{bonnred}{red} text.
+  \item \verb|\colg{<text>}|  $\Rightarrow$ \textcolor{bonngrey}{grey} text.
+\end{itemize}
+
+\noindent Example:
+\begin{verbatim}
+This sentence has a \colb{blue phrase}, a \colr{red phrase}, 
+and a \coly{yellow phrase}.
+\end{verbatim}
+
+%------------------------------------------------------------------------------
+\section{Program Name Macros}
+\label{sec:programs}
+Quantum-chemistry program names often involve unconventional capitalization, spacing, or font choices. \texttt{qcstyle} provides dedicated macros to ensure consistent formatting. All program-related commands use \verb|\newcommand*| and select an appropriate font shape:
+
+\begin{description}
+  \item[\texttt{\textbackslash orca}]  – Renders “ORCA” in a monospaced (typewriter) font via \verb|\fontfamily{pag}|.\\
+    \textit{Usage:} 
+    \begin{verbatim}
+    Calculations were performed with \orca\.
+    \end{verbatim}
+
+  \item[\texttt{\textbackslash censo}] – Renders “CENSO” in the same monospaced style.\\
+    \textit{Usage:} 
+    \begin{verbatim}
+    \censo\ was employed for geometry optimizations.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash draco}] – Renders “Draco” in small caps.\\
+    \textit{Usage:}
+    \begin{verbatim}
+    The new module in \draco\ yields improved convergence.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash crest}] – Renders “CREST” in small caps.\\
+    \textit{Usage:}
+    \begin{verbatim}
+    Conformers were generated with \crest\.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash xtb}]   – Renders “xTB” in a \verb|\texttt| (typewriter) font.\\
+    \textit{Usage:}
+    \begin{verbatim}
+    For fast SQM screening, we used \xtb\.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash tblite}] – Renders “tblite” in a \verb|\texttt| font.\\
+    \textit{Usage:}
+    \begin{verbatim}
+    Partial charges were assigned via \tblite\.
+    \end{verbatim}
+\end{description}
+
+\noindent Note: Each macro adds an implicit, unbreakable space at the end. If you do not want a space (e.g., before punctuation), use \verb|\orca{}| or manual spacing.
+
+%------------------------------------------------------------------------------
+\section{Miscellaneous Macros}
+\label{sec:misc}
+In addition to program names, \texttt{qcstyle} defines several commonly used scientific abbreviations and units:
+
+\begin{description}
+    \item[\texttt{\textbackslash etal}]  – Renders “\textit{et al.}”. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    Smith \etal\ reported similar results.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash ie}]    – Renders “\textit{i.e.}”. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    We used the B3LYP functional (\ie\ hybrid GGA).
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash eg}]   – Renders “\textit{e.g.}”. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    Many packages (e.g., \orca, \xtb) can compute dispersion.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash pka}]   – Renders “p\textit{K}\textsubscript{a}” with a proper subscript “$a$”. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    The calculated \pka\ of the acid is 4.8.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash dgsolv}] – Renders “$\delta$\textit{G}\textsubscript{solv}” with the delta and subscript “solv”. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    The solvation free energy (\dgsolv) was computed using SMD.
+    \end{verbatim}
+
+    \item[\texttt{\textbackslash kcalmol}] – Renders “kcal$\cdot$mol$^{-1}$ ” with a trailing thin space to separate it from the next word. \\
+    \textit{Usage:} 
+    \begin{verbatim}
+    The reaction barrier is 15.2 \kcalmol.
+    \end{verbatim}
+\end{description}
+
+%------------------------------------------------------------------------------
+\section{QC-Method Macro}
+\label{sec:qcmethods}
+\texttt{qcstyle} includes a single dedicated macro for a popular composite method:
+
+\begin{description}
+    \item[\texttt{\textbackslash rsc}] – Renders “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
+    \textit{Usage:}
+    \begin{verbatim}
+    Single-point energies were obtained at the \rsc\ level.
+    \end{verbatim}
+\end{description}
+
+%------------------------------------------------------------------------------
+\section{Example Usage}
+\label{sec:example}
+Below is a minimal working example illustrating how to load \texttt{qcstyle} and use its macros. Copy the following into a file named \texttt{example-qcstyle.tex} and compile with \LaTeX:
+
+\medskip
+\begin{verbatim}
+\documentclass[a4paper,12pt]{article}
+
+% If installed system-wide:
+% \usepackage{qcstyle}
+% Otherwise, place qcstyle.sty in src/:
+\input{src/qcstyle.sty}
+
+\title{Example for \texttt{qcstyle}}
+\author{Christian Selzer \& Lukas Wittmann}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+In this document, it is demonstrated how to use abbreviations and colors from \texttt{qcstyle}.
+
+\subsection{Abbreviations}
+Here are a few examples:
+\begin{itemize}
+  \item Calculations were performed with \orca\.
+  \item The best program is \xtb\ for SQM and it has \emph{no} bugs.
+  \item As shown by Smith \etal, the method \rsc\ is accurate.
+\end{itemize}
+
+\subsection{Colored Elements}
+\begin{itemize}
+    \item Here something is written in \textcolor{bonnblue}{blue}, optionally also via \verb|\colb{}|.
+    \item For comparison something in \textcolor{blue}{normal blue}.
+    \item Highlighted text in \coly{Bonn yellow}.
+\end{itemize}
+
+\section{Conclusion}
+The package offers simple abbreviations and colors that are maintained centrally in one file.
+
+\end{document}
+\end{verbatim}
+
+\bigskip
+After compilation, the PDF will show all macros in action. Adjust paths as needed (e.g., \texttt{src/qcstyle.sty} vs.\ \texttt{qcstyle.sty}).
+
+%------------------------------------------------------------------------------
+% \section{Summary of Commands}
+% \label{sec:commandlist}
+
+% \subsection{Color Definitions}
+% \begin{itemize}
+%   \item \verb|\textcolor{bonnblue}{...}|, \verb|\textcolor{bonnred}{...}|, \verb|\textcolor{bonnyellow}{...}|
+%   \item \verb|\textcolor{bonngrey}{...}| or \verb|\textcolor{bonngray}{...}|
+%   \item \verb|\textcolor{bonngreen}{...}|, \verb|\textcolor{newaccent}{...}|, \verb|\textcolor{black}{...}|
+%   \item \verb|\textcolor{highlightgreen}{...}|, \verb|\textcolor{white}{...}|
+%   \item \verb|\textcolor{StdBody}{...}|
+% \end{itemize}
+
+% \subsection{Shortcut Color Macros}
+% \begin{itemize}
+%   \item \verb|\colb{<text>}| – Bonn blue
+%   \item \verb|\colr{<text>}| – Bonn red
+%   \item \verb|\coly{<text>}| – Bonn yellow
+%   \item \verb|\colg{<text>}| – Bonn grey / gray
+% \end{itemize}
+
+% \subsection{Program Macros}
+% \begin{itemize}
+%   \item \verb|\orca|   – ORCA (typewriter font)
+%   \item \verb|\censo|  – CENSO (typewriter font)
+%   \item \verb|\draco|  – Draco (small caps)
+%   \item \verb|\crest|  – CREST (small caps)
+%   \item \verb|\xtb|    – xTB (typewriter font)
+%   \item \verb|\tblite| – tblite (typewriter font)
+% \end{itemize}
+
+% \subsection{Miscellaneous Abbreviations}
+% \begin{itemize}
+%   \item \verb|\etal|  – \textit{et al.}
+%   \item \verb|\ie|    – \textit{i.e.}
+%   \item \verb|\eg|    – \textit{e.g.}
+%   \item \verb|\pka|   – p\textit{K}\textsubscript{a}
+%   \item \verb|\dgsolv| – $\delta$\textit{G}\textsubscript{solv}
+%   \item \verb|\kcalmol| – kcal$\cdot$mol$^{-1}$\~
+% \end{itemize}
+
+% \subsection{QC-Method Macro}
+% \begin{itemize}
+%   \item \verb|\rsc| – r\textsuperscript{2}SCAN-3c
+% \end{itemize}
+
+%------------------------------------------------------------------------------
+\section{License and Credits}
+\label{sec:license}
+\texttt{qcstyle} is distributed under the LaTeX Project Public License (LPPL) as specified by the author. By using this package, you agree to abide by the terms of the license. For full license text, please refer to the \texttt{LICENSE} file that accompanies this package.
+
+\medskip
+\noindent\textbf{Author:} Christian Selzer \& Lukas Wittmann\\
+\textbf{Version:} 0.1 (2025/06/03)\\
+%------------------------------------------------------------------------------
+\section{Future Directions}
+\label{sec:future}
+Possible enhancements in future releases:
+\begin{itemize}
+  \item Add user-configurable options for toggling individual macros or redefining color values.
+  \item Introduce additional program names (e.g., Q-Chem, Gaussian, Psi4) as macros.
+  \item Provide support for colored hyperlinked URLs matching the corporate palette.
+  \item Extend with macros for common basis sets or density functionals.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\end{document}

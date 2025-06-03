@@ -1,31 +1,33 @@
 \documentclass[a4paper,12pt]{article}
-%\usepackage{qcsytle}  % hier wird dein Paket geladen
-\input{src/qcstyle.sty}
-\title{Beispiel für meinpaket}
-\author{Dein Name}
+%\usepackage{qcsytle}  % here your package is loaded
+\input{src/qcstyle.sty} % this has to be changed once the package is on ctan
+\title{Example for \texttt{qcstyle}}
+\author{Christian Selzer \& Lukas Wittmann}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-\section{Einführung}
+\section{Introduction}
 
-    In diesem Dokument demonstriere ich, wie man Abkürzungen und Farben aus \texttt{meinpaket} verwendet.
+    In this document, it is demonstrated how to use abbreviations and colors from \texttt{qcsytyle}.
 
-\subsection{Abkürzungen}
-    Hier ein paar Beispiele:
+\subsection{Abbreviations}
+    Here are a few examples:
     \begin{itemize}
-      \item Rechungen wurden mit \orca~durchgeführt
-      \item Das beste Program ist \xtb~für sqm und es hat keine bugs.
+      \item Calculations were performed with \orca\
+      \item The best program is \xtb\ for sqm and it has \emph{no} bugs.
     \end{itemize}
 
-\subsection{Farbige Elemente}
+\subsection{Colored Elements}
     \begin{itemize}
-        \item hier ist ewtas in \textcolor{bonnblue}{blau geschrieben}
-        \item zum vergleich etwas in \textcolor{blue}{normalen blau}
+        \item Here something is written in \textcolor{bonnblue}{blue}, optionally also via \verb|\colb{}|.
+        \item For comparison something in \textcolor{blue}{normal blue}.
     \end{itemize}
 
-\section{Fazit}
-    Das Paket bietet einfache Abkürzungen und Farben, die zentral in einer Datei gepflegt werden.
+    5\kcalmol
+
+\section{Conclusion}
+    The package offers simple abbreviations and colors that are maintained centrally in one file.
 
 \end{document}
