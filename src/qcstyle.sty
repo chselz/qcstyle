@@ -1,0 +1,40 @@
+% ------------------------------------------------------------
+% qcsytle.sty  v0.1  2025/06/03  
+%Package for unifying the writing of common qc program names
+% Copyright (c) 2025 Christian Selzer
+% ------------------------------------------------------------
+
+%%Identification
+%%The package identifies itself and the LaTeX version needed
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qcsytle}[2025/06/03 qcstyle]
+
+\RequirePackage{xcolor}
+
+%==========Colorors========
+\definecolor{bonnblue}{RGB}{7, 78, 159}
+\definecolor{bonnred}{RGB}{185, 39, 39}
+\definecolor{bonnyellow}{RGB}{252, 186, 0}
+\definecolor{bonngrey}{RGB}{144, 144, 133}
+
+\definecolor{newaccent}{RGB}{0, 0, 0}
+\definecolor{black}{RGB}{0, 0, 0}
+\definecolor{highlightgreen}{RGB}{0, 204, 0}
+\definecolor{white}{RGB}{255, 255, 255}
+\definecolor{StdBody}{RGB}{233,233,233}
+\definecolor{bonngreen}{RGB}{0, 123, 78
+
+%==========Programms=======
+\newcommand*{\orca}{{\fontfamily{pag}\selectfont ORCA}}
+\newcommand*{\draco}{{{\textsc{Draco}}}}
+\newcommand*{\crest}{{{\textsc{CREST~}}}}
+\newcommand{\xtb}{\texttt{xTB}}
+
+%============Misc==========
+\newcommand*{\etal}{\textit{et al.}}
+
+%=========QC-Methods========
+\newcommand*{\rsc}{r\textsuperscript{2}SCAN-3c}
+
+
+\endinput
