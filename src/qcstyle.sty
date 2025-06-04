@@ -109,27 +109,34 @@
 \ExplSyntaxOff
 %–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-
+%–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+\ExplSyntaxOn
+  % Create a comma‐separated “batch declare” command:
+  %
+  %   \DeclareMethods{alias_1,alias_2,..}{formatted text}
+  %
+  % Internally, this splits the comma list and does exactly what
+  % \DeclareMethod does for each item.
+  \NewDocumentCommand \DeclareMethods { m m }
+   {
+     \clist_map_inline:nn { #1 }
+       {
+         \prop_put:Nnn \l__qc_methods_prop
+           { \tl_lower_case:n { ##1 } }
+           { #2 }
+       }
+   }
+\ExplSyntaxOff
+%–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 %-------------------------------------------------------
 % Declare Methods
 %-------------------------------------------------------
-\DeclareMethod{r2scan3c}{r\textsuperscript{2}SCAN-3c}
-\DeclareMethod{wr2scand4}{$\omega$r\textsuperscript{2}SCAN-D4}
-\DeclareMethod{wpr2scan50d4}{$\omega$Pr\textsuperscript{2}SCAN50-D4}
-\DeclareMethod{pr2scan50d4}{Pr\textsuperscript{2}SCAN50-D4}
-\DeclareMethod{kpr2scan50d4}{$\kappa$Pr\textsuperscript{2}SCAN50-D4}
-\DeclareMethod{pr2scan69d4}{Pr\textsuperscript{2}SCAN69-D4}
-\DeclareMethod{wr2scan}{$\omega$r\textsuperscript{2}SCAN}
-\DeclareMethod{wpr2scan50}{$\omega$Pr\textsuperscript{2}SCAN50}
-\DeclareMethod{pr2scan50}{Pr\textsuperscript{2}SCAN50}
-\DeclareMethod{kpr2scan50}{$\kappa$Pr\textsuperscript{2}SCAN50}
-\DeclareMethod{pr2scan69}{Pr\textsuperscript{2}SCAN69}
+\DeclareMethods{rsc,r2scan3c,r2scan-3c}{r\textsuperscript{2}SCAN-3c}
+\DeclareMethods{wr2scand4,wr2scan-d4,wr2scand4}{$\omega$r\textsuperscript{2}SCAN-D4}
+\DeclareMethods{wpr2scan50d4,wpr2scan50-d4,wpr2scan50d4}{$\omega$Pr\textsuperscript{2}SCAN50-D4}
 
-%-------------------------------------------------------
-% Declare Aliases
-%-------------------------------------------------------
-%\DeclareMethodAlias{rsc}{r2scan3c}
+
 
 
 \endinput
