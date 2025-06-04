@@ -40,7 +40,7 @@ This document describes the \texttt{qcstyle} package (version 0.1, dated 2025/06
 
 %------------------------------------------------------------------------------
 \section{Introduction}
-The \texttt{qcstyle} package was created to simplify and standardize the appearance of quantum-chemical program names, method labels, and key notations in LaTeX documents. Rather than manually inserting font switches, colors, or special macros each time you mention a program (e.g., \orca, \xtb) or a quantity (e.g., \pka, \dgsolv), \texttt{qcstyle} provides a concise set of commands that automatically apply consistent formatting. Additionally, several custom colors matching the University of Bonn’s corporate palette are defined, enabling easy color highlights in presentations, posters, or manuscripts.  
+The \texttt{qcstyle} package was created to simplify and standardize the appearance of quantum-chemical program names, method labels, and key notations in \LaTeX\ documents. Rather than manually inserting font switches, colors, or special macros each time you mention a program (e.g., \orca, \xtb) or a quantity (e.g., \pka, \dgsolv), \texttt{qcstyle} provides a concise set of commands that automatically apply consistent formatting. Additionally, several custom colors matching the University of Bonn’s corporate palette are defined, enabling easy color highlights in presentations, posters, or manuscripts.  
 
 \medskip
 Key features:
@@ -48,36 +48,32 @@ Key features:
   \item \textbf{Program Macros:} Uniform fonts (small caps, typewriter) for popular QC codes (\orca, \censo, \draco, \crest, \xtb, \tblite).
   \item \textbf{Color Palette:} Predefined RGB colors (\texttt{bonnblue}, \texttt{bonnred}, \texttt{bonnyellow}, \texttt{bonngrey}/\texttt{bonngray}, \texttt{bonngreen}, etc.) aligned with University of Bonn branding.
   \item \textbf{Abbreviation Macros:} Convenient commands for \etal, \ie, \eg, physical chemistry quantities (\pka, \dgsolv, \kcalmol).
-  \item \textbf{QC-Method Macro:} A shorthand for the r\textsuperscript{2}SCAN-3c composite method: \verb|\rsc|.
-  \item \textbf{Minimal Dependencies:} Only \texttt{xcolor} is required. 
+  \item \textbf{QC-Method Macro:} Shorthands for several quantum mechanical methods such as \method{r2scan3c} .
+  \item \textbf{Minimal Dependencies:} Only \texttt{xcolor} and \texttt{siunitx} are required. 
 \end{itemize}
 
 %------------------------------------------------------------------------------
 \section{Installation}
 \label{sec:installation}
 
-\subsection{CTAN or Local TEXMF Installation}
-Once the \texttt{qcstyle} package is submitted to CTAN (or maintained in your local \texttt{TEXMF} tree), you can install it in the usual way for LaTeX packages. After installation, add the following line in your document’s preamble:
+\subsection{CTAN or Local }
+ The \texttt{qcstyle} package is available via CTAN.
+ Add the following line in your document’s preamble:
 \begin{verbatim}
 \usepackage{qcstyle}
 \end{verbatim}
 
 \subsection{Manual (Unpacked) Usage}
-If you have not installed the package system-wide, simply place the \texttt{qcstyle.sty} file in the same folder as your \texttt{.tex} document (or in a subfolder, e.g.\ \texttt{src/}). Then, in the preamble, either:
+If you have not installed the package system-wide, simply place the \texttt{qcstyle.sty} file in the same folder as your \texttt{.tex} document. Then, in the preamble, either:
 \begin{verbatim}
 % If qcstyle.sty is in the same directory:
 \input{qcstyle.sty}
-
-% Or, if stored under src/:
-\input{src/qcstyle.sty}
 \end{verbatim}
 
-Ensure that you have \texttt{xcolor} available, since \texttt{qcstyle} depends on it.
-
 %------------------------------------------------------------------------------
-\section{Package Options}
-\label{sec:options}
-The current version (0.1) of \texttt{qcstyle} does not provide user-settable options. All macros and colors are preconfigured. Future versions may introduce options to toggle certain definitions or adjust color names.
+% \section{Package Options}
+% \label{sec:options}
+% The current version (0.1) of \texttt{qcstyle} does not provide user-settable options. All macros and colors are preconfigured. Future versions may introduce options to toggle certain definitions or adjust color names.
 
 %------------------------------------------------------------------------------
 \section{Color Definitions}
@@ -147,13 +143,13 @@ Quantum-chemistry program names often involve unconventional capitalization, spa
   \item[\texttt{\textbackslash censo}] – Renders “CENSO” in the same monospaced style.\\
     \textit{Usage:} 
     \begin{verbatim}
-    \censo\ was employed for geometry optimizations.
+    \censo\ was employed for ensemble refinements.
     \end{verbatim}
 
     \item[\texttt{\textbackslash draco}] – Renders “Draco” in small caps.\\
     \textit{Usage:}
     \begin{verbatim}
-    The new module in \draco\ yields improved convergence.
+    The new module in \draco\ yields improved solvation free energies.
     \end{verbatim}
 
     \item[\texttt{\textbackslash crest}] – Renders “CREST” in small caps.\\
@@ -171,7 +167,7 @@ Quantum-chemistry program names often involve unconventional capitalization, spa
     \item[\texttt{\textbackslash tblite}] – Renders “tblite” in a \verb|\texttt| font.\\
     \textit{Usage:}
     \begin{verbatim}
-    Partial charges were assigned via \tblite\.
+    Hamiltonian elements were calculated via \tblite\.
     \end{verbatim}
 \end{description}
 
@@ -223,13 +219,13 @@ In addition to program names, \texttt{qcstyle} defines several commonly used sci
 %------------------------------------------------------------------------------
 \section{QC-Method Macro}
 \label{sec:qcmethods}
-\texttt{qcstyle} includes a single dedicated macro for a popular composite method:
+\texttt{qcstyle} includes  dedicated macros for popular quantum mechanical methods:
 
 \begin{description}
-    \item[\texttt{\textbackslash rsc}] – Renders “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
+    \item[\texttt{\textbackslash method\{r2scan3c\}}] – Renders “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
     \textit{Usage:}
     \begin{verbatim}
-    Single-point energies were obtained at the \rsc\ level.
+    Single-point energies were obtained at the \method{r2scan3c}\ level of theory.
     \end{verbatim}
 \end{description}
 
@@ -248,7 +244,7 @@ Below is a minimal working example illustrating how to load \texttt{qcstyle} and
 \input{src/qcstyle.sty}
 
 \title{Example for \texttt{qcstyle}}
-\author{Christian Selzer \& Lukas Wittmann}
+\author{Christian Selzer}
 \date{\today}
 
 \begin{document}
@@ -333,7 +329,7 @@ After compilation, the PDF will show all macros in action. Adjust paths as neede
 \texttt{qcstyle} is distributed under the LaTeX Project Public License (LPPL) as specified by the author. By using this package, you agree to abide by the terms of the license. For full license text, please refer to the \texttt{LICENSE} file that accompanies this package.
 
 \medskip
-\noindent\textbf{Author:} Christian Selzer \& Lukas Wittmann\\
+\noindent\textbf{Author:} Christian Selzer \\
 \textbf{Version:} 0.1 (2025/06/03)\\
 %------------------------------------------------------------------------------
 \section{Future Directions}
