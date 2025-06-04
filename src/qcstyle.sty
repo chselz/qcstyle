@@ -1,5 +1,5 @@
 % ------------------------------------------------------------
-% qcsytle.sty  v0.1  2025/06/03  
+% qcsytle.sty  v0.1  2025/06/034 
 %Package for unifying the writing of common qc program names
 % Copyright (c) 2025 Christian Selzer
 % ------------------------------------------------------------
@@ -50,8 +50,11 @@
 
 
 %============Units==========
-\newcommand{\kcalmol}{\unit{\kilo.\cal.\mol^{-1}}}
 
+\DeclareSIUnit[number-unit-product = {\,}]{\calorie}{cal}
+\sisetup{per-mode = power}
+\newcommand{\kcalpmol}{\unit{\kilo\calorie\per\mol}}
+\newcommand{\kjpmol}{\unit{\kilo\joule\per\mol}}
 
 %============Quantities==========
 \newcommand*{\pka}{p\textit{K}\textsubscript{a}}
@@ -59,17 +62,6 @@
 \newcommand*{\logkwa}{log~\textit{K}\textsubscript{wa}}
 \newcommand*{\logpl}{log~\textit{P}\textsubscript{L}}
 \newcommand*{\dgsolv}{$\delta$\textit{G}\textsubscript{solv}}
-\newcommand*{\logkow}{log~\textit{K}\textsubscript{ow}}
-\newcommand*{\logkwa}{log~\textit{K}\textsubscript{wa}}
-\newcommand*{\logpl}{log~\textit{P}\textsubscript{L}}
-
-
-%===========Units===================
-\DeclareSIUnit[number-unit-product = {\,}]{\calorie}{cal}
-\sisetup{per-mode = power}
-\newcommand{\kcalmol}{\unit{\kilo\calorie\per\mol}}
-
-
 
 %=========QC-Methods========
 %\newcommand*{\rsc}{r\textsuperscript{2}SCAN-3c}

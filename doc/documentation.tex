@@ -3,7 +3,7 @@
 
 
 %===============================================================================
-% qcstyle-doc.tex  v0.1  2025/06/03
+% qcstyle-doc.tex  v0.1  2025/06/04
 % Documentation for the qcstyle LaTeX package
 % Copyright (c) 2025 Christian Selzer
 %===============================================================================
@@ -25,7 +25,7 @@
 \input{../src/qcstyle.sty}
 
 \title{\texttt{qcstyle} Package Documentation}
-\author{Christian Selzer}
+\author{Christian Selzer \& Lukas Wittmann}
 \date{2025/06/03}
 
 \begin{document}
@@ -47,7 +47,7 @@ Key features:
 \begin{itemize}
   \item \textbf{Program Macros:} Uniform fonts (small caps, typewriter) for popular QC codes (\orca, \censo, \draco, \crest, \xtb, \tblite).
   \item \textbf{Color Palette:} Predefined RGB colors (\texttt{bonnblue}, \texttt{bonnred}, \texttt{bonnyellow}, \texttt{bonngrey}/\texttt{bonngray}, \texttt{bonngreen}, etc.) aligned with University of Bonn branding.
-  \item \textbf{Abbreviation Macros:} Convenient commands for \etal, \ie, \eg, physical chemistry quantities (\pka, \dgsolv, \kcalmol).
+  \item \textbf{Abbreviation Macros:} Convenient commands for \etal, \ie, \eg, physical chemistry quantities (\pka, \dgsolv, \kcalpmol).
   \item \textbf{QC-Method Macro:} Shorthands for several quantum mechanical methods such as \method{r2scan3c} .
   \item \textbf{Minimal Dependencies:} Only \texttt{xcolor} and \texttt{siunitx} are required. 
 \end{itemize}
@@ -222,10 +222,11 @@ In addition to program names, \texttt{qcstyle} defines several commonly used sci
 \texttt{qcstyle} includes  dedicated macros for popular quantum mechanical methods:
 
 \begin{description}
-    \item[\texttt{\textbackslash method\{r2scan3c\}}] – Renders “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
+    \item[\texttt{\textbackslash method\{<method>\}}] – Renders \texttt{<method>} properly e.g. “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
     \textit{Usage:}
     \begin{verbatim}
-    Single-point energies were obtained at the \method{r2scan3c}\ level of theory.
+    Single-point energies were obtained at the
+    \method{r2scan3c}\ level of theory.
     \end{verbatim}
 \end{description}
 
@@ -329,8 +330,8 @@ After compilation, the PDF will show all macros in action. Adjust paths as neede
 \texttt{qcstyle} is distributed under the LaTeX Project Public License (LPPL) as specified by the author. By using this package, you agree to abide by the terms of the license. For full license text, please refer to the \texttt{LICENSE} file that accompanies this package.
 
 \medskip
-\noindent\textbf{Author:} Christian Selzer \\
-\textbf{Version:} 0.1 (2025/06/03)\\
+\noindent\textbf{Author:} Christian Selzer \& Lukas Wittmann\\
+\textbf{Version:} 0.1 (2025/06/04)\\
 %------------------------------------------------------------------------------
 \section{Future Directions}
 \label{sec:future}
