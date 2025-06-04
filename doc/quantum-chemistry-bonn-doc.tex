@@ -3,8 +3,8 @@
 
 
 %===============================================================================
-% qcstyle-doc.tex  v0.1  2025/06/04
-% Documentation for the qcstyle LaTeX package
+% quantum-chemistry-bonn-doc.tex  v0.1  2025/06/04
+% Documentation for the quantum-chemistry-bonn LaTeX package
 % Copyright (c) 2025 Christian Selzer
 %===============================================================================
 
@@ -20,19 +20,19 @@
 }
 
 % If the package is installed via CTAN or in your local TEXMF tree, use:
-% \usepackage{qcstyle}
-% Otherwise, to compile this documentation, place qcstyle.sty in the same directory and uncomment:
-\input{../src/qcstyle.sty}
+% \usepackage{quantum-chemistry-bonn}
+% Otherwise, to compile this documentation, place quantum-chemistry-bonn.sty in the same directory and uncomment:
+\input{../src/quantum-chemistry-bonn.sty}
 
-\title{\texttt{qcstyle} Package Documentation}
+\title{\texttt{quantum-chemistry-bonn} Package Documentation}
 \author{Christian Selzer \& Lukas Wittmann}
-\date{2025/06/03}
+\date{2025/06/04}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This document describes the \texttt{qcstyle} package (version 0.1, dated 2025/06/03), developed to consolidate common quantum-chemistry program names, colorful branding elements, and frequently used abbreviations into a single, centrally maintained style file. With \texttt{qcstyle}, authors can ensure uniform formatting for program names, method labels, color highlights, and other notations across all QC-related manuscripts. 
+This document describes the \texttt{quantum-chemistry-bonn} package (version 0.1, dated 2025/06/03), developed to consolidate common quantum-chemistry program names, colorful branding elements, and frequently used abbreviations into a single, centrally maintained style file. With \texttt{quantum-chemistry-bonn}, authors can ensure uniform formatting for program names, method labels, color highlights, and other notations across all QC-related manuscripts. 
 \end{abstract}
 
 \tableofcontents
@@ -40,7 +40,7 @@ This document describes the \texttt{qcstyle} package (version 0.1, dated 2025/06
 
 %------------------------------------------------------------------------------
 \section{Introduction}
-The \texttt{qcstyle} package was created to simplify and standardize the appearance of quantum-chemical program names, method labels, and key notations in \LaTeX\ documents. Rather than manually inserting font switches, colors, or special macros each time you mention a program (e.g., \orca, \xtb) or a quantity (e.g., \pka, \dgsolv), \texttt{qcstyle} provides a concise set of commands that automatically apply consistent formatting. Additionally, several custom colors matching the University of Bonn’s corporate palette are defined, enabling easy color highlights in presentations, posters, or manuscripts.  
+The \texttt{quantum-chemistry-bonn} package was created to simplify and standardize the appearance of quantum-chemical program names, method labels, and key notations in \LaTeX\ documents. Rather than manually inserting font switches, colors, or special macros each time you mention a program (e.g., \orca, \xtb) or a quantity (e.g., \pka, \dgsolv), \texttt{quantum-chemistry-bonn} provides a concise set of commands that automatically apply consistent formatting. Additionally, several custom colors matching the University of Bonn’s corporate palette are defined, enabling easy color highlights in presentations, posters, or manuscripts.  
 
 \medskip
 Key features:
@@ -57,28 +57,28 @@ Key features:
 \label{sec:installation}
 
 \subsection{CTAN or Local }
- The \texttt{qcstyle} package is available via CTAN.
+ The \texttt{quantum-chemistry-bonn} package is available via CTAN.
  Add the following line in your document’s preamble:
 \begin{verbatim}
-\usepackage{qcstyle}
+\usepackage{quantum-chemistry-bonn}
 \end{verbatim}
 
 \subsection{Manual (Unpacked) Usage}
-If you have not installed the package system-wide, simply place the \texttt{qcstyle.sty} file in the same folder as your \texttt{.tex} document. Then, in the preamble, either:
+If you have not installed the package system-wide, simply place the \texttt{quantum-chemistry-bonn.sty} file in the same folder as your \texttt{.tex} document. Then, in the preamble, either:
 \begin{verbatim}
-% If qcstyle.sty is in the same directory:
-\input{qcstyle.sty}
+% If quantum-chemistry-bonn.sty is in the same directory:
+\input{quantum-chemistry-bonn.sty}
 \end{verbatim}
 
 %------------------------------------------------------------------------------
 % \section{Package Options}
 % \label{sec:options}
-% The current version (0.1) of \texttt{qcstyle} does not provide user-settable options. All macros and colors are preconfigured. Future versions may introduce options to toggle certain definitions or adjust color names.
+% The current version (0.1) of \texttt{quantum-chemistry-bonn} does not provide user-settable options. All macros and colors are preconfigured. Future versions may introduce options to toggle certain definitions or adjust color names.
 
 %------------------------------------------------------------------------------
 \section{Color Definitions}
 \label{sec:colors}
-\texttt{qcstyle} defines a palette of RGB colors aligned with the University of Bonn branding, plus a few additional utility colors. All color names can be passed to \verb|\textcolor{<name>}{...}| or used in other color-aware commands.
+\texttt{quantum-chemistry-bonn} defines a palette of RGB colors aligned with the University of Bonn branding, plus a few additional utility colors. All color names can be passed to \verb|\textcolor{<name>}{...}| or used in other color-aware commands.
 
 \bigskip
 \begin{tabular}{@{}llp{8cm}@{}}
@@ -114,7 +114,7 @@ If you have not installed the package system-wide, simply place the \texttt{qcst
 %------------------------------------------------------------------------------
 \section{Shortcut Color Macros}
 \label{sec:shortcuts}
-To simplify inline color usage, \texttt{qcstyle} defines four “shortcut” macros:
+To simplify inline color usage, \texttt{quantum-chemistry-bonn} defines four “shortcut” macros:
 \begin{itemize}
   \item \verb|\colb{<text>}|  $\Rightarrow$ \textcolor{bonnblue}{blue} text.
   \item \verb|\coly{<text>}|  $\Rightarrow$ \textcolor{bonnyellow}{yellow} text.
@@ -131,7 +131,7 @@ and a \coly{yellow phrase}.
 %------------------------------------------------------------------------------
 \section{Program Name Macros}
 \label{sec:programs}
-Quantum-chemistry program names often involve unconventional capitalization, spacing, or font choices. \texttt{qcstyle} provides dedicated macros to ensure consistent formatting. All program-related commands use \verb|\newcommand*| and select an appropriate font shape:
+Quantum-chemistry program names often involve unconventional capitalization, spacing, or font choices. \texttt{quantum-chemistry-bonn} provides dedicated macros to ensure consistent formatting. All program-related commands use \verb|\newcommand*| and select an appropriate font shape:
 
 \begin{description}
   \item[\texttt{\textbackslash orca}]  – Renders “ORCA” in a monospaced (typewriter) font via \verb|\fontfamily{pag}|.\\
@@ -176,7 +176,7 @@ Quantum-chemistry program names often involve unconventional capitalization, spa
 %------------------------------------------------------------------------------
 \section{Miscellaneous Macros}
 \label{sec:misc}
-In addition to program names, \texttt{qcstyle} defines several commonly used scientific abbreviations and units:
+In addition to program names, \texttt{quantum-chemistry-bonn} defines several commonly used scientific abbreviations and units:
 
 \begin{description}
     \item[\texttt{\textbackslash etal}]  – Renders “\textit{et al.}”. \\
@@ -219,7 +219,7 @@ In addition to program names, \texttt{qcstyle} defines several commonly used sci
 %------------------------------------------------------------------------------
 \section{QC-Method Macro}
 \label{sec:qcmethods}
-\texttt{qcstyle} includes  dedicated macros for popular quantum mechanical methods:
+\texttt{quantum-chemistry-bonn} includes  dedicated macros for popular quantum mechanical methods:
 
 \begin{description}
     \item[\texttt{\textbackslash method\{<method>\}}] – Renders \texttt{<method>} properly e.g. “r\textsuperscript{2}SCAN-3c” with proper superscript formatting for the “2”.\\
@@ -233,18 +233,18 @@ In addition to program names, \texttt{qcstyle} defines several commonly used sci
 %------------------------------------------------------------------------------
 \section{Example Usage}
 \label{sec:example}
-Below is a minimal working example illustrating how to load \texttt{qcstyle} and use its macros. Copy the following into a file named \texttt{example-qcstyle.tex} and compile with \LaTeX:
+Below is a minimal working example illustrating how to load \texttt{quantum-chemistry-bonn} and use its macros. Copy the following into a file named \texttt{example-quantum-chemistry-bonn.tex} and compile with \LaTeX:
 
 \medskip
 \begin{verbatim}
 \documentclass[a4paper,12pt]{article}
 
 % If installed system-wide:
-% \usepackage{qcstyle}
-% Otherwise, place qcstyle.sty in src/:
-\input{src/qcstyle.sty}
+% \usepackage{quantum-chemistry-bonn}
+% Otherwise, place quantum-chemistry-bonn.sty in src/:
+\input{src/quantum-chemistry-bonn.sty}
 
-\title{Example for \texttt{qcstyle}}
+\title{Example for \texttt{quantum-chemistry-bonn}}
 \author{Christian Selzer}
 \date{\today}
 
@@ -252,7 +252,7 @@ Below is a minimal working example illustrating how to load \texttt{qcstyle} and
 \maketitle
 
 \section{Introduction}
-In this document, it is demonstrated how to use abbreviations and colors from \texttt{qcstyle}.
+In this document, it is demonstrated how to use abbreviations and colors from \texttt{quantum-chemistry-bonn}.
 
 \subsection{Abbreviations}
 Here are a few examples:
@@ -276,7 +276,7 @@ The package offers simple abbreviations and colors that are maintained centrally
 \end{verbatim}
 
 \bigskip
-After compilation, the PDF will show all macros in action. Adjust paths as needed (e.g., \texttt{src/qcstyle.sty} vs.\ \texttt{qcstyle.sty}).
+After compilation, the PDF will show all macros in action. Adjust paths as needed (e.g., \texttt{src/quantum-chemistry-bonn.sty} vs.\ \texttt{quantum-chemistry-bonn.sty}).
 
 %------------------------------------------------------------------------------
 % \section{Summary of Commands}
@@ -327,7 +327,7 @@ After compilation, the PDF will show all macros in action. Adjust paths as neede
 %------------------------------------------------------------------------------
 \section{License and Credits}
 \label{sec:license}
-\texttt{qcstyle} is distributed under the LaTeX Project Public License (LPPL) as specified by the author. By using this package, you agree to abide by the terms of the license. For full license text, please refer to the \texttt{LICENSE} file that accompanies this package.
+\texttt{quantum-chemistry-bonn} is distributed under the LaTeX Project Public License (LPPL) as specified by the author. By using this package, you agree to abide by the terms of the license. For full license text, please refer to the \texttt{LICENSE} file that accompanies this package.
 
 \medskip
 \noindent\textbf{Author:} Christian Selzer \& Lukas Wittmann\\
