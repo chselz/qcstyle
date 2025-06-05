@@ -1,6 +1,6 @@
-# Contributing to qcstyle
+# Contributing to quantum-chemistry-bonn
 
-First off, thank you for considering contributing to `qcstyle`.
+First off, thank you for considering contributing to `quantum-chemistry-bonn`.
 Please take a moment to review this guidelines to make the contribution process
 simple and effective for all involved.
 
@@ -26,7 +26,7 @@ A good bug report should not leave others needing to chase you up for more
 information. So please try to be as detailed as possible in your report,
 answer at least these questions:
 
-1. Which version of `qcstyle` are you using? The current version is always
+1. Which version of `quantum-chemistry-bonn` are you using? The current version is always
    a subject to change, so be more specific.
 2. What is your environment (your laptop, the cluster of the university)?
 3. What steps will reproduce the issue?
@@ -66,7 +66,7 @@ If you never created a pull request before, welcome :tada:.
 You can learn how from [this great tutorial](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
 Don't know where to start?
-You can start by looking through these [issues](https://github.com/chselz/qcstyle/issues).
+You can start by looking through these [issues](https://github.com/chselz/quantum-chemistry-bonn/issues).
 
 
 ## Sign Your Work

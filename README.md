@@ -1,4 +1,4 @@
-# quantum-chemistry-bonn LaTex package
+# quantum-chemistry-bonn LaTeX package
 
 This is a Latex package to ensure a consistent usage of colors and writings of Quantum Chemistry related names, such as the names of Quantum Chemistry Software Packages.
 
